@@ -66,6 +66,9 @@ public class SvgToElm extends DefaultHandler {
 
             String attrName = atts.getLocalName(i);
             String attrValue = atts.getValue(i);
+            if (attrName.equals("line-height")) {
+                continue;
+            }
 
             this.printIndent(isFirstAttr);
             System.out.print(this.fromSvgAttrToElm(attrName));
@@ -100,6 +103,15 @@ public class SvgToElm extends DefaultHandler {
         ma.put("text", "text");
         ma.put("path", "Svg.Attributes.path");
         ma.put("style", "Svg.Attributes.style");
+        ma.put("stop-color", "stopColor");
+        ma.put("stop-opacity", "stopOpacity");
+        ma.put("href", "xlinkHref");
+        ma.put("line-height", "lineHeight");
+        ma.put("font-family", "fontFamily");
+        ma.put("font-size", "fontSize");
+        ma.put("space", "xmlSpace");
+        ma.put("type", "attributeType");
+        ma.put("stroke-width", "strokeWidth");
         _fromSvgAttributeToElm = ma;
     }
 
